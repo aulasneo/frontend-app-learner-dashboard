@@ -1,25 +1,40 @@
-import React from 'react';
-
-import { getConfig } from '@edx/frontend-platform';
+import React, { useEffect, useState } from 'react';
+import { getConfig, camelCaseObject } from '@edx/frontend-platform';
 import { useIntl } from '@edx/frontend-platform/i18n';
 import { Button } from '@openedx/paragon';
-
 import urls from 'data/services/lms/urls';
 import { reduxHooks } from 'hooks';
-
 import AuthenticatedUserDropdown from './AuthenticatedUserDropdown';
 import { useIsCollapsed, findCoursesNavClicked } from '../hooks';
 import messages from '../messages';
 import BrandLogo from '../BrandLogo';
+import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
 
 export const ExpandedHeader = () => {
   const { formatMessage } = useIntl();
   const { courseSearchUrl } = reduxHooks.usePlatformSettingsData();
   const isCollapsed = useIsCollapsed();
+  const [linkPanorama, setLinkPanorama] = useState(null);
 
   const exploreCoursesClick = findCoursesNavClicked(
     urls.baseAppUrl(courseSearchUrl),
   );
+
+  useEffect(() => {
+    const fetchLink = async () => {
+      const url = `${getConfig().LMS_BASE_URL}/panorama/api/get-user-access`;
+      try {
+        const { data } = await getAuthenticatedHttpClient().get(url);
+        const linkData = camelCaseObject(data);
+        const linkResponse = linkData.body;
+        setLinkPanorama(linkResponse);
+      } catch (error) {
+        const httpErrorStatus = error?.response?.status;
+        console.error('Error fetching panorama link:', httpErrorStatus);
+      }
+    };
+    fetchLink();
+  }, []);
 
   if (isCollapsed) {
     return null;
@@ -55,6 +70,16 @@ export const ExpandedHeader = () => {
         >
           {formatMessage(messages.discoverNew)}
         </Button>
+        {linkPanorama && (
+          <Button
+            as="a"
+            href={getConfig().PANORAMA_URL}
+            variant="inverse-primary"
+            className="p-4"
+          >
+            Panorama
+          </Button>
+        )}
         <span className="flex-grow-1" />
         <Button
           as="a"
@@ -70,7 +95,5 @@ export const ExpandedHeader = () => {
     </header>
   );
 };
-
-ExpandedHeader.propTypes = {};
 
 export default ExpandedHeader;
