@@ -4,11 +4,11 @@ import { useIntl } from '@edx/frontend-platform/i18n';
 import { Button } from '@openedx/paragon';
 import urls from 'data/services/lms/urls';
 import { reduxHooks } from 'hooks';
+import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
 import AuthenticatedUserDropdown from './AuthenticatedUserDropdown';
 import { useIsCollapsed, findCoursesNavClicked } from '../hooks';
 import messages from '../messages';
 import BrandLogo from '../BrandLogo';
-import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
 
 export const ExpandedHeader = () => {
   const { formatMessage } = useIntl();
