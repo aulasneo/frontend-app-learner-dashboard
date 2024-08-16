@@ -90,7 +90,6 @@ export const ExpandedHeader = () => {
           {formatMessage(messages.help)}
         </Button>
       </div>
-
       <AuthenticatedUserDropdown />
     </header>
   );
