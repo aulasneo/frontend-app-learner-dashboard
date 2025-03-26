@@ -55,6 +55,14 @@ export const ExpandedHeader = () => {
         >
           {formatMessage(messages.discoverNew)}
         </Button>
+        <Button
+          as="a"
+          href={getConfig().PANORAMA_URL}
+          variant="inverse-primary"
+          className="p-4"
+        >
+          {formatMessage(messages.panorama)}
+        </Button>
         <span className="flex-grow-1" />
         <Button
           as="a"
