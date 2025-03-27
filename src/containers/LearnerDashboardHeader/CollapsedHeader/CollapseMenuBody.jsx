@@ -44,12 +44,12 @@ export const CollapseMenuBody = ({ isOpen }) => {
         {formatMessage(messages.discoverNew)}
       </Button>
       <Button
-          as="a"
-          href={getConfig().PANORAMA_URL}
-          variant="inverse-primary"
-        >
-          {formatMessage(messages.panorama)}
-        </Button>
+        as="a"
+        href={getConfig().PANORAMA_URL}
+        variant="inverse-primary"
+      >
+        {formatMessage(messages.panorama)}
+      </Button>
       <Button as="a" href={getConfig().SUPPORT_URL} variant="inverse-primary">
         {formatMessage(messages.help)}
       </Button>
