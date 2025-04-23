@@ -21,6 +21,11 @@ const messages = defineMessages({
     defaultMessage: 'Help',
     description: 'The text for the link to the Help Center',
   },
+  panorama: {
+    id: 'learnerVariantDashboard.panorama.label',
+    defaultMessage: 'Panorama',
+    description: 'The text for the link to the Panorama MFE',
+  },
   profile: {
     id: 'learnerVariantDashboard.menu.profile.label',
     defaultMessage: 'Profile',

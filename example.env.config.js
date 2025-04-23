@@ -43,6 +43,7 @@ module.exports = {
   MARKETING_SITE_BASE_URL: 'http://localhost:18000',
   SUPPORT_URL: 'http://localhost:18000/support',
   CONTACT_URL: 'http://localhost:18000/contact',
+  PANORAMA_URL: 'http://localhost:2100/panorama/',
   OPEN_SOURCE_URL: 'http://localhost:18000/openedx',
   TERMS_OF_SERVICE_URL: 'http://localhost:18000/terms-of-service',
   PRIVACY_POLICY_URL: 'http://localhost:18000/privacy-policy',

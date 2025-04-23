@@ -30,6 +30,12 @@ const getLearnerHeaderMenu = (
         exploreCoursesClick(e);
       },
     },
+    {
+      type: 'item',
+      href: getConfig().PANORAMA_URL,
+      content: formatMessage(messages.panorama),
+      isActive: true,
+    },
   ],
   secondaryMenu: [
     ...(getConfig().SUPPORT_URL ? [{
