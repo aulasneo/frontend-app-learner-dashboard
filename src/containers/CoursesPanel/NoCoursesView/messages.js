@@ -3,7 +3,7 @@ import { defineMessages } from '@edx/frontend-platform/i18n';
 const messages = defineMessages({
   lookingForChallengePrompt: {
     id: 'Dashboard.NoCoursesView.lookingForChallengePrompt',
-    defaultMessage: 'Looking for a new challenge?',
+    defaultMessage: 'Bienvenido',
     description: 'Prompt user for new challenge',
   },
   exploreCoursesPrompt: {
@@ -13,7 +13,7 @@ const messages = defineMessages({
   },
   exploreCoursesButton: {
     id: 'Dashboard.NoCoursesView.exploreCoursesButton',
-    defaultMessage: 'Explore courses',
+    defaultMessage: 'Comenzar',
     description: 'Button to explore more courses',
   },
   bannerAlt: {
