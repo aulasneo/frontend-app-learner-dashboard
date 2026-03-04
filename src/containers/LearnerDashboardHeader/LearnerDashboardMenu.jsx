@@ -34,7 +34,6 @@ const getLearnerHeaderMenu = (
       type: 'item',
       href: getConfig().PANORAMA_URL,
       content: formatMessage(messages.panorama),
-      isActive: true,
     },
   ],
   secondaryMenu: [
